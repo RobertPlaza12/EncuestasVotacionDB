@@ -46,7 +46,7 @@ async function mostrarEncuestas() {
                 <div style="margin-top: 15px;">
                     <button class="btn-small" onclick="participantesEncuesta(${enc.id})">Registrar participantes</button>
                     <button class="btn-small" onclick="editarEncuesta(${enc.id})">Editar</button>
-                    <button class="btn-small btn-good" onclick="iniciarEncuesta(${enc.id})" ${participantesSinVotar === 0 ? 'disabled' : ''}>
+                    <button id="btnEnviar" class="btn-small btn-good" onclick="guardarEncuesta(${enc.id})" ${participantesSinVotar === 0 ? 'disabled' : ''}>
                         ${participantesConToken > 0 ? 'Reenviar Correos' : 'Iniciar Encuesta'}
                     </button>
                     <button class="btn-small btn-danger" onclick="eliminarEncuesta(${enc.id})">
@@ -202,3 +202,4 @@ style.textContent = `
 document.head.appendChild(style);
 
 window.onload = mostrarEncuestas;
+
