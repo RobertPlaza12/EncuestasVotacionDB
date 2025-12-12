@@ -134,7 +134,8 @@ async function enviarCorreoIndividualEmailJS(participante, tituloEncuesta) {
         const response = await emailjs.send(
             EMAILJS_CONFIG.SERVICE_ID,
             EMAILJS_CONFIG.TEMPLATE_ID,
-            templateParams
+            templateParams,
+            EMAILJS_CONFIG.USER_ID 
         );
         
         return {
