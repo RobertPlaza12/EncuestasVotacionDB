@@ -1,8 +1,8 @@
 // Configuración EmailJS - REEMPLAZA CON TUS DATOS REALES
 const EMAILJS_CONFIG = {
-    USER_ID: 'TU_USER_ID_DE_EMAILJS', // Reemplazar
-    SERVICE_ID: 'TU_SERVICE_ID_DE_EMAILJS', // Reemplazar
-    TEMPLATE_ID: 'TU_TEMPLATE_ID_DE_EMAILJS' // Reemplazar
+    USER_ID: 'service_p8mr2mj', // Reemplazar
+    SERVICE_ID: 'GmrC_vnr7yG0IWgCF', // Reemplazar
+    TEMPLATE_ID: 'template_88ql4es' // Reemplazar
 };
 
 // Inicializar EmailJS (añade esto al cargar la página)
@@ -176,10 +176,10 @@ async function finalizarEnvioEnServidor(encuestaId, participantesEnviados) {
 }
 
 // Función para reemplazar tu función original de envío
-async function guardarEncuesta() {
+async function guardarEncuesta(id) {
     try {
         // Tu código existente para obtener encuestaId...
-        const encuestaId = obtenerIdEncuesta(); // Esta función debe existir en tu código
+        const encuestaId = id; // Esta función debe existir en tu código
         
         if (!encuestaId) {
             alert('No se encontró ID de encuesta');
