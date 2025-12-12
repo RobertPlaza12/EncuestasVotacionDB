@@ -1,8 +1,8 @@
 // Configuración EmailJS - REEMPLAZA CON TUS DATOS REALES
 const EMAILJS_CONFIG = {
-    USER_ID: 'service_p8mr2mj', // Reemplazar
-    SERVICE_ID: 'GmrC_vnr7yG0IWgCF', // Reemplazar
-    TEMPLATE_ID: 'template_88ql4es' // Reemplazar
+    USER_ID: 'WEGJd8eaHcVnaJSnV', 
+    SERVICE_ID: 'service_p8mr2mj',
+    TEMPLATE_ID: 'template_88ql4es'
 };
 
 // Inicializar EmailJS (añade esto al cargar la página)
