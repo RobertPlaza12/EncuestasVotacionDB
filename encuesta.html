@@ -25,10 +25,23 @@
     <button id="addEncuesta">Agregar nueva encuesta</button>
     </div>
   <div class="card" id="encuestasList"></div>
-
+  
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    
+  <script>
+      // Inicializar EmailJS al cargar la página
+      document.addEventListener('DOMContentLoaded', function() {
+          // Configurar EmailJS - REEMPLAZA CON TUS DATOS
+          emailjs.init('TU_USER_ID_DE_EMAILJS');
+          
+          console.log('EmailJS inicializado correctamente');
+      });
+  </script>
 
   <script src="script/getEncuestas.js"></script>
+  <script src="script/enviarEncuesta.js"></script>
 
 </body>
 </html>
+
 
