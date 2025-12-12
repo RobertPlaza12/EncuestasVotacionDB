@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Editar Encuesta</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="sidebar">
+    <h2>Menú</h2>
+    <div class="menu">
+        <a href="index.html" >Inicio</a>
+        <a href="encuesta.html" class="active">Encuestas</a>
+        <a href="reportes.html">Reportes</a>
+    </div>
+</div>
+
+<div class="card">
+    <h1>Editar encuesta</h1>
+    <label>Título de la Encuesta</label>
+    <input id="tituloEncuesta" type="text" />
+
+    <h2>Preguntas</h2>
+
+    <div id="preguntas"></div>
+
+    <button id="addPregunta">Agregar Pregunta</button>
+    <br>
+    <button id="btnGuardar" class="btn-good">Guardar Cambios</button>
+</div>
+
+
+<script src="script/editEncuestas.js"></script>
+
+</body>
+</html>

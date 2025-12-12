@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro para Encuesta</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .registro-container {
+            max-width: 500px;
+            margin: 50px auto;
+            padding: 30px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .registro-container h1 {
+            text-align: center;
+            color: #1e1e2f;
+            margin-bottom: 10px;
+        }
+        
+        .registro-container p {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #333;
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 6px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+        
+        .form-group input:focus {
+            border-color: #1e1e2f;
+            outline: none;
+        }
+        
+        .btn-registrar {
+            width: 100%;
+            padding: 14px;
+            background: #1e1e2f;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .btn-registrar:hover {
+            background: #343454;
+        }
+        
+        .message {
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        
+        .success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        
+        .loader {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #1e1e2f;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <h2>Menú</h2>
+        <div class="menu">
+            <a href="index.html">Inicio</a>
+            <a href="encuesta.html">Encuestas</a>
+            <a href="reportes.html">Reportes</a>
+        </div>
+    </div>
+
+    <div class="content">
+        <div class="registro-container">
+            <h1>📝 Registro para Encuesta</h1>
+            <p>Completa tus datos para acceder a la encuesta</p>
+            
+            <div id="message"></div>
+            <div id="encuestaInfo" class="message info"></div>
+            
+            <form id="formRegistro">
+                <div class="form-group">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="apellido">Apellido:</label>
+                    <input type="text" id="apellido" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Correo Electrónico:</label>
+                    <input type="email" id="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="comentario">Comentario (opcional):</label>
+                    <input type="text" id="comentario">
+                </div>
+                
+                <button type="submit" id="btnRegistrar" class="btn-registrar">Registrarse y Continuar</button>
+            </form>
+            
+            <div id="loading" style="display: none;">
+                <div class="loader"></div>
+                <p style="text-align: center;">Registrando...</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script/registroEncuesta.js"></script>
+</body>
+</html>

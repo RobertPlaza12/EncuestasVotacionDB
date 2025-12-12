@@ -1,0 +1,186 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  /*display: flex;*/
+  /*height: 100vh;*/
+  background: #f4f4f4;
+}
+
+/* Menú lateral */
+.sidebar {
+  position: fixed; /* Hace que el menú sea fijo */
+  top: 0; /* Lo posiciona en la parte superior */
+  left: 0; /* Lo posiciona a la izquierda */
+  height: 100vh; /* Ocupa toda la altura de la ventana */
+  width: 230px;
+  background: #1e1e2f;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  padding-top: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 20px; /* Agrega padding en la parte inferior */
+  overflow-y: auto; /* Permite scroll si el contenido es muy largo */
+  z-index: 1000; /* Asegura que esté por encima del contenido */
+  box-sizing: border-box; /* Incluye padding en el cálculo del tamaño */
+}
+
+.sidebar h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 22px;
+}
+
+.menu a {
+  color: #fff;
+  text-decoration: none;
+  padding: 15px 20px;
+  display: block;
+  font-size: 18px;
+  transition: background 0.3s;
+  border-radius: 5px; /* Opcional: para mejor apariencia */
+  margin-bottom: 5px; /* Espacio entre enlaces */
+}
+
+.menu a:hover,
+.menu a.active {
+  background: #343454;
+}
+
+/* Contenido principal */
+.content {
+  flex: 1;
+  padding: 40px;
+  margin-left: 0px; /* Espacio para el menú lateral fijo */
+  box-sizing: border-box;
+}
+
+.content h1 {
+  font-size: 32px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.content p {
+  font-size: 18px;
+  line-height: 1.6;
+  max-width: 700px;
+  color: #444;
+}
+.card {
+  background: #fff;
+  padding: 50px;
+  border-radius: 10px;
+  max-width: 800px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  margin-left: 230px; /* Asegura que no tenga margen extra */
+}
+
+label {
+  font-size: 16px;
+  display: block;
+  margin: 15px 0 5px;
+}
+
+input[type="text"] {
+  width: 80%;
+  padding: 12px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+}
+
+.pregunta-container {
+  background: #f9f9f9;
+  padding: 15px;
+  margin-top: 10px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+.opcion-input {
+  display: block;
+  margin-top: 8px;
+  padding: 10px;
+  width: 95%;
+  border-radius: 6px;
+  border: 1px solid #bbb;
+}
+
+button {
+  padding: 10px 18px;
+  margin-top: 20px;
+  font-size: 16px;
+  cursor: pointer;
+  background: #1e1e2f;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+}
+
+.btn-small {
+  padding: 6px 12px;
+  font-size: 14px;
+  margin-left: 10px;
+}
+
+.btn-danger {
+  background: #f95a5a;
+}
+.btn-good {
+  background: #60ff52;
+}
+/* Añadir estos estilos al final del archivo style.css */
+
+.encuesta-item {
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.encuesta-item h3 {
+    margin-top: 0;
+    color: #1e1e2f;
+}
+
+.encuesta-item p {
+    margin: 5px 0;
+}
+
+.participante-item {
+    background: #f9f9f9;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.pregunta-container {
+    background: #f9f9f9;
+    padding: 15px;
+    margin-top: 10px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+.opcion-input {
+    display: block;
+    margin-top: 8px;
+    padding: 10px;
+    width: 95%;
+    border-radius: 6px;
+    border: 1px solid #bbb;
+}
+
+textarea {
+    width: 80%;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    margin-bottom: 15px;
+}

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acceso a Encuesta</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .access-container {
+            max-width: 500px;
+            margin: 50px auto;
+            padding: 30px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .access-container h1 {
+            text-align: center;
+            color: #1e1e2f;
+            margin-bottom: 10px;
+        }
+        
+        .access-container p {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #333;
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 6px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+        
+        .form-group input:focus {
+            border-color: #1e1e2f;
+            outline: none;
+        }
+        
+        .btn-acceder {
+            width: 100%;
+            padding: 14px;
+            background: #1e1e2f;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .btn-acceder:hover {
+            background: #343454;
+        }
+        
+        .btn-acceder:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+        
+        .message {
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        
+        .success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        
+        .info {
+            background: #d1ecf1;
+            color: #0c5460;
+            border: 1px solid #bee5eb;
+        }
+        
+        .loader {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #1e1e2f;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .encuesta-info {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            border-left: 4px solid #1e1e2f;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="content">
+        <div class="access-container">
+            <h1>📋 Acceso a Encuesta</h1>
+            <p>Ingresa tu correo electrónico para acceder a la encuesta</p>
+            
+            <div id="message"></div>
+            
+            <div id="encuestaInfo" class="encuesta-info" style="display: none;">
+                <h3 id="encuestaTitulo"></h3>
+                <p id="encuestaDesc"></p>
+            </div>
+            
+            <div id="formAcceso">
+                <div class="form-group">
+                    <label for="email">Correo Electrónico:</label>
+                    <input type="email" id="email" placeholder="ejemplo@correo.com" required>
+                </div>
+                
+                <button id="btnAcceder" class="btn-acceder">Acceder a la Encuesta</button>
+            </div>
+            
+            <div id="loading" style="display: none;">
+                <div class="loader"></div>
+                <p style="text-align: center;">Verificando acceso...</p>
+            </div>
+            
+            <div id="resultado" style="display: none;">
+                <div class="message success">
+                    <h3>✅ Acceso verificado</h3>
+                    <p>Redirigiendo a la encuesta...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script/accesoEncuesta.js"></script>
+</body>
+</html>

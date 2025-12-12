@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Registrar Participante</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="sidebar">
+        <h2>Menú</h2>
+        <div class="menu">
+            <a href="index.html" >Inicio</a>
+            <a href="encuesta.html" class="active">Encuestas</a>
+            <a href="reportes.html">Reportes</a>
+        </div>
+    </div>
+
+<div class="card">
+    <h1>Registrar Participante</h1>
+    <form id="formParticipante">
+
+        <label>Nombre:</label>
+        <input type="text" id="nombre" required>
+
+        <label>Apellido:</label>
+        <input type="text" id="apellido" required>
+
+        <label>Correo:</label>
+        <input type="email" id="correo" required>
+
+        <label>Comentario:</label>
+        <textarea id="comentario"></textarea>
+
+        <button type="submit">Guardar Participante</button>
+        <button type="button" onclick="volver()">Volver</button>
+
+    </form>
+</div>
+
+<div id="listaParticipantes" class="card"></div>
+
+<script src="script/participantes.js"></script>
+
+</body>
+</html>
