@@ -1,11 +1,9 @@
-// Configuración EmailJS - REEMPLAZA CON TUS DATOS REALES
 const EMAILJS_CONFIG = {
     USER_ID: 'WEGJd8eaHcVnaJSnV', 
     SERVICE_ID: 'service_p8mr2mj',
     TEMPLATE_ID: 'template_88ql4es'
 };
 
-// Inicializar EmailJS (añade esto al cargar la página)
 function inicializarEmailJS() {
     if (typeof emailjs !== 'undefined') {
         emailjs.init(EMAILJS_CONFIG.USER_ID);
@@ -18,7 +16,7 @@ function inicializarEmailJS() {
 // Función principal para enviar invitaciones
 async function enviarInvitacionesEmailJS(encuestaId) {
     try {
-        // 1. Obtener datos del servidor
+        //Obtener datos desde la api
         console.log('Obteniendo datos de participantes...');
         const response = await fetch('https://proyectoencuesta100619780.atwebpages.com/api/preparar_envio_emailjs.php', {
             method: 'POST',
@@ -46,7 +44,7 @@ async function enviarInvitacionesEmailJS(encuestaId) {
             };
         }
         
-        // 2. Enviar correos uno por uno con EmailJS
+        //Enviar correos uno por uno con EmailJS
         const resultados = {
             enviados: 0,
             errores: [],
@@ -75,7 +73,7 @@ async function enviarInvitacionesEmailJS(encuestaId) {
                     console.log(`✗ Error con ${participante.email}: ${resultado.message}`);
                 }
                 
-                // Esperar entre envíos (1.5 segundos para evitar rate limiting)
+                // Esperar entre envíos 1.5 segundos
                 if (i < participantes.length - 1) {
                     await new Promise(resolve => setTimeout(resolve, 1500));
                 }
@@ -89,7 +87,7 @@ async function enviarInvitacionesEmailJS(encuestaId) {
             }
         }
         
-        // 3. Marcar encuesta como enviada en el servidor
+        // Se marcar la encuesta como enviada en el servidor
         if (resultados.enviados > 0) {
             await finalizarEnvioEnServidor(encuestaId, resultados.participantes_enviados);
         }
@@ -112,15 +110,13 @@ async function enviarInvitacionesEmailJS(encuestaId) {
     }
 }
 
-// Función para enviar un correo individual con EmailJS
 async function enviarCorreoIndividualEmailJS(participante, tituloEncuesta) {
     try {
-        // Verificar que EmailJS esté disponible
+
         if (typeof emailjs === 'undefined') {
             throw new Error('EmailJS no está cargado');
         }
         
-        // Preparar datos para la plantilla
         const templateParams = {
             to_email: participante.email,
             to_name: participante.nombre_completo,
@@ -130,7 +126,7 @@ async function enviarCorreoIndividualEmailJS(participante, tituloEncuesta) {
             encuesta_id: participante.encuesta_id
         };
         
-        // Enviar con EmailJS
+        // Enviar
         const response = await emailjs.send(
             EMAILJS_CONFIG.SERVICE_ID,
             EMAILJS_CONFIG.TEMPLATE_ID,
@@ -153,7 +149,6 @@ async function enviarCorreoIndividualEmailJS(participante, tituloEncuesta) {
     }
 }
 
-// Función para finalizar el envío en el servidor
 async function finalizarEnvioEnServidor(encuestaId, participantesEnviados) {
     try {
         const response = await fetch('https://proyectoencuesta100619780.atwebpages.com/api/finalizar_envio.php', {
@@ -176,27 +171,22 @@ async function finalizarEnvioEnServidor(encuestaId, participantesEnviados) {
     }
 }
 
-// Función para reemplazar tu función original de envío
 async function guardarEncuesta(id) {
     try {
-        // Tu código existente para obtener encuestaId...
-        const encuestaId = id; // Esta función debe existir en tu código
+
+        const encuestaId = id;
         
         if (!encuestaId) {
             alert('No se encontró ID de encuesta');
             return;
         }
         
-        // Mostrar indicador de carga
         mostrarCargando(true);
         
-        // Enviar invitaciones con EmailJS
         const resultado = await enviarInvitacionesEmailJS(encuestaId);
         
-        // Mostrar resultados
         mostrarResultadosEnvio(resultado);
         
-        // Actualizar UI
         actualizarUIEnvioCompletado();
         
     } catch (error) {
@@ -207,7 +197,6 @@ async function guardarEncuesta(id) {
     }
 }
 
-// Funciones auxiliares
 function mostrarCargando(mostrar) {
     const boton = document.querySelector('#btnEnviar');
     if (boton) {
@@ -236,12 +225,10 @@ function mostrarResultadosEnvio(resultado) {
     
     alert(mensaje);
     
-    // También puedes mostrarlo en un modal más bonito
-    mostrarModalResultados(resultado);
+    //mostrarModalResultados(resultado);
 }
 
 function actualizarUIEnvioCompletado() {
-    // Actualiza la UI después del envío
     const estadoElemento = document.querySelector('#estadoEnvio');
     if (estadoElemento) {
         estadoElemento.textContent = 'Invitaciones enviadas';
