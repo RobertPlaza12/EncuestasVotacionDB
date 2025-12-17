@@ -1,5 +1,5 @@
 
-const API = 'http://proyectoencuesta100619780.atwebpages.com/';
+const API = 'https://proyectoencuesta100619780.atwebpages.com/';
 
 document.getElementById("addEncuesta").onclick = () => {
     window.location.href = "crearEncuesta.html";
@@ -202,5 +202,6 @@ style.textContent = `
 document.head.appendChild(style);
 
 window.onload = mostrarEncuestas;
+
 
 
